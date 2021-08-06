@@ -5,9 +5,10 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 
-# def home_page(request):
-#     return render(request, 'index.html')
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 
-class IndexView(TemplateView):
-    template_name = 'index.html'
+class ResumeView(TemplateView):
+    template_name = 'resume.html'
