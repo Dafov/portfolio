@@ -15,7 +15,9 @@
 
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static '/vendor/aos/aos.css' %}" rel="stylesheet">
@@ -41,11 +43,15 @@
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a href="{% url 'hero' %}" class="#hero nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="{% url 'resume' %}" class="#resume nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+        <li><a href="{% url 'hero' %}" class="#hero nav-link scrollto active"><i class="bx bx-home"></i>
+            <span>Home</span></a></li>
+        <li><a href="{% url 'resume' %}" class="#resume nav-link scrollto"><i class="bx bx-file-blank"></i>
+            <span>Resume</span></a></li>
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a>
+        </li>
         <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-        <li><a href="{% url 'contact' %}" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        <li><a href="{% url 'contact' %}" class="nav-link scrollto"><i class="bx bx-envelope"></i>
+            <span>Contact</span></a></li>
         <li><a href="#register" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Sign In</span></a></li>
 
       </ul>
@@ -56,10 +62,10 @@
 
   <!-- ======= Hero Section ======= -->
   <!-- ======= About Section ======= -->
-  
+
   {% block hero %}
   {% endblock hero %}
-    
+
   <!-- End Hero -->
   <!-- End About Section -->
 
@@ -133,11 +139,11 @@
 
 
     <!-- ======= Resume Section ======= -->
-    {% block resume %}       
+    {% block resume %}
     {% endblock resume %}
     <!-- End Resume Section -->
 
-  
+
     <!-- ======= Portfolio Section ======= -->
     <!-- <section id="portfolio" class="portfolio section-bg">
       <div class="container" data-aos="fade-up">
@@ -425,7 +431,8 @@
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{% static '/vendor/aos/aos.js' %}"></script>
