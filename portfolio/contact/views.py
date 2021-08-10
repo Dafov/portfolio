@@ -6,10 +6,15 @@ from django.views.generic import ListView, DetailView, FormView
 # Create your views here.
 
 
-class ContactTempalteView(FormView):
+class CreateMessageView(FormView):
     template_name = 'contact.html'
     form_class = MessageForm
-    success_url = 'home'
+    success_url = '../'
+
+    def form_valid(self, form):
+        message = form.save(commit=False)
+        message.save()
+        return super().form_valid(form)
 
 
 class InboxPageView(ListView):

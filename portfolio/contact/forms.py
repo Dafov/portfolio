@@ -6,36 +6,40 @@ class MessageForm(ModelForm):
         model = Message
         fields = '__all__'
         exclude = ['is_read']
-        labels = {
-            'name': '',
-            'email': '',
-            'subject': '',
-            'body': '',
-        }
         
 
     def __init__(self, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update(
-            {
-                'class': 'form-control',
+             {
+                'class': 'col-md-8 form-control',
                 'placeholder': 'Your name',
                 'label': False,
-            })
-        # self.fields['email'].label = ''
+                'type':'text'
+            }
+        )
         self.fields['email'].widget.attrs.update(
-            {'class': 'form-control', })
-        # self.fields['subject'].label = ''
+            {
+                'class': 'col-md-8 form-control',
+                'placeholder': 'Your email',
+                'label': False,
+                'type':'email'
+            }
+        )
         self.fields['subject'].widget.attrs.update(
-            {'class': 'form-control', })
-        # self.fields['body'].label = ''
+            {
+                'class': 'col-md-8 form-control',
+                'placeholder': 'Subject',
+                'label': False,
+                'type':'subject'
+            }
+        )
         self.fields['body'].widget.attrs.update(
-            {'class': 'form-control', })
+            {
+                'class': 'col-md-8 form-control',
+                'placeholder': 'Message',
+                'label': False,
+                'type':'message'
+            }
+        )
 
-    def form_valid(self, form):
-   
-        print(form.cleaned_data)
-        return super().form_valid(form)
-    
-    def success_url(self):
-        pass
