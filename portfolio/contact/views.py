@@ -1,3 +1,4 @@
+from portfolio.common.superuser_mixins import SuperUserRequiredMixin
 from portfolio.contact.forms import MessageForm
 from portfolio.contact.models import Message
 from django.shortcuts import get_object_or_404
@@ -17,19 +18,22 @@ class CreateMessageView(FormView):
         return super().form_valid(form)
 
 
-class InboxPageView(ListView):
+class InboxPageView(SuperUserRequiredMixin, ListView):
     model = Message
     template_name = 'inbox.html'
     context_object_name = 'inbox'
 
-
     def get_queryset(self):
         inbox = Message.objects.all().order_by('-created')
-        inbox.order_by('is_read')
         return inbox
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_super"] = self.request.user.is_superuser
+        return super().get_context_data(**kwargs)
 
-class MessageDetailView(DetailView):
+
+class MessageDetailView(SuperUserRequiredMixin, DetailView):
     template_name = "message.html"
     context_object_name = "message"
 
@@ -39,3 +43,8 @@ class MessageDetailView(DetailView):
         message.is_read = True
         message.save()
         return message
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_super"] = self.request.user.is_superuser
+        return super().get_context_data(**kwargs)
