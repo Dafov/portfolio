@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block delete_message %}
+<section id="delete-message" class="delete-message col-lg-11">
+    <div class="container delete-message" data-aos="fade-up">
+        <form class="delete-form" method="post">
+
+            <div class="section-title">
+                <h2>Are you sure you want to delete the message?</h2>
+            </div>
+
+            {% csrf_token %}
+
+            <div class="text-center">
+                <input type="submit" value="Delete"/>
+                <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock delete_message %}

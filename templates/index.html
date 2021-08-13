@@ -57,9 +57,12 @@
         <li><a href="{% url 'contact' %}" class="nav-link scrollto"><i class="bx bx-envelope"></i>
             <span>Contact</span></a></li>
         {% endif %}
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'log out user' %}"class="nav-link scrollto"><i class="bx bx-log-out"></i><span>Log out</span></a></li>
+        {% else %}
         <li><a href="{% url 'log in user' %}" class="nav-link scrollto"><i class="bx bx-user"></i>
             <span>Account</span></a></li>
-
+        {% endif %}
       </ul>
     </nav><!-- .nav-menu -->
 
@@ -318,13 +321,22 @@
     <!-- ======= Message Section ======= -->
     {% block message %}
     {% endblock message %}
+
+    {% block delete_message %}
+    {% endblock delete_message %}
     <!-- End Message Section -->
 
     <!-- ======= Accounts Section ======= -->
     {% block login %}
     {% endblock login %}
+
     {% block register %}
     {% endblock register %}
+
+
+    {% block profile %}
+    {% endblock profile %}
+
     <!-- End Accounts Section -->
 
 
@@ -334,8 +346,6 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>Georgi Dafov</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
       <div class="social-links">
         <a href="https://github.com/Dafov" class="github"><i class="bx bxl-github"></i></a>
         <a href="https://www.linkedin.com/in/georgi-dafov/" class="linkedin"><i class="bx bxl-linkedin"></i></a>

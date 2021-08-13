@@ -1,22 +1,31 @@
 {% extends 'index.html' %}
+{% load static %}
 
 {% block register %}
-<section id="register" class="register">
-
+<section id="register" class="register col-lg-11">
   <div class="container register" data-aos="fade-up">
     <form class="register-form" method="post">
 
       <div class="section-title">
         <h2>Sign up</h2>
       </div>
+
       {% csrf_token %}
-      {{ form }}
+      <!-- {% for field in form %}
+      <div style="margin-bottom: 10px">
+        {{ field }}
+      </div>
+      {% endfor %} -->
+      {{form}}
       <div class="text-center">
         <button type="submit">Sign up</button>
       </div>
-      <span>Have an account?
-        <a href="{% url 'log in user' %}" style="color:orange">Sign in here</a>
-      </span>
+      <div class="text-center">
+        <span>Have an account?
+          <a href="{% url 'log in user' %}" style="color:orange">Sign in here</a>
+        </span>
+      </div>
+
     </form>
   </div>
 </section>

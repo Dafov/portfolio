@@ -1,8 +1,7 @@
 from django.urls import path
-from portfolio.accounts.views import logout_user, RegisterView, LoginUserView
-
+from portfolio.accounts import views
 urlpatterns = (
-    path('login/', LoginUserView.as_view(), name='log in user'),
-    path('logout/', logout_user, name='log out user'),
-    path('register/', RegisterView.as_view(), name='register user'),
+    path('login/', views.LoginUserView.as_view(), name='log in user'),
+    path('logout/', views.logout_user, name='log out user'),
+    path('register/', views.RegisterView.as_view(), name='register user'),
 )

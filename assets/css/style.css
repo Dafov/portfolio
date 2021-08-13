@@ -535,6 +535,10 @@ section {
   color: #45505b;
 }
 
+.inbox .table {
+  margin-bottom: 350px;
+}
+
 .inbox .inbox-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
@@ -986,9 +990,97 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 50px;
+  margin-bottom: 100px;
+
 }
 
 .contact .email-form button[type="submit"]:hover {
+  background: #0678e3;
+}
+
+.resume .delete-btn a {
+  background: #bb0505;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+
+.resume .delete-btn {
+  margin-bottom: 375px;
+}
+
+.resume .delete-btn a input[type="submit"]:hover {
+  background: #ff3030;
+}
+
+.delete-message .delete-message {
+  border: 1px solid grey;
+  padding: 5%;
+  max-width: 50%;
+}
+
+.delete-message .delete-form .loading {
+  display: none;
+  background: #fff;
+}
+
+.delete-message .delete-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.delete-message .delete-form input, .delete-message .delete-form textarea {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.delete-message .delete-form input {
+  height: 44px;
+}
+
+.delete-message .delete-form textarea {
+  padding: 10px 12px;
+}
+
+.delete-message .delete-form input[type="submit"] {
+  background: #bb0505;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.delete-message .delete-form input[type="submit"]:hover {
+  background: #ff3030;
+}
+
+.delete-message .delete-form a {
+  background: #0563bb;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.delete-message .delete-form a:hover {
   background: #0678e3;
 }
 
@@ -1015,6 +1107,7 @@ section {
 .login .login {
   border: 1px solid grey;
   padding: 5%;
+  margin-bottom: 190px;
   max-width: 50%;
 }
 
@@ -1040,6 +1133,7 @@ section {
   border-radius: 4px;
   box-shadow: none;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .login .login-form input {
@@ -1073,6 +1167,8 @@ section {
   border: 1px solid grey;
   padding: 5%;
   max-width: 50%;
+  margin-bottom: 130px;
+
 }
 
 .register .register-form .loading {
@@ -1097,6 +1193,7 @@ section {
   border-radius: 4px;
   box-shadow: none;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .register .register-form input {
@@ -1136,26 +1233,11 @@ section {
   font-size: 14px;
   text-align: center;
   padding: 30px 0;
-}
 
-#footer h3 {
-  font-size: 36px;
-  font-weight: 700;
-  position: relative;
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-
-#footer p {
-  font-size: 15;
-  font-style: italic;
-  padding: 0;
-  margin: 0 0 40px 0;
 }
 
 #footer .social-links {
-  margin: 0 0 40px 0;
+  margin: 10px 0 20px 0;
 }
 
 #footer .social-links a {
@@ -1165,7 +1247,7 @@ section {
   color: #fff;
   line-height: 1;
   padding: 8px 0;
-  margin-right: 4px;
+  margin-right: 10px;
   border-radius: 50%;
   text-align: center;
   width: 36px;

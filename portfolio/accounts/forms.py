@@ -9,6 +9,7 @@ class LoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
+        self.fields['username'].label = ''
         self.fields['username'].widget.attrs.update(
             {
                 'class': 'col-md-8 form-control',
@@ -16,6 +17,7 @@ class LoginForm(AuthenticationForm):
                 'label': False,
             }
         )
+        self.fields['password'].label = ''
         self.fields['password'].widget.attrs.update(
             {
                 'class': 'col-md-8 form-control',
@@ -32,20 +34,28 @@ class RegisterForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
+        self.fields['email'].label = ''
         self.fields['email'].widget.attrs.update(
             {
-                'placeholder': 'Your email adress',
+                'class': 'col-md-8 form-control',
+                'placeholder': 'Enter email adress',
                 'label': False,
             }
         )
+        self.fields['password1'].label = ''
+        self.fields['password1'].help_text = ''
         self.fields['password1'].widget.attrs.update(
             {
-                'placeholder': 'Your password',
+                'class': 'col-md-8 form-control',
+                'placeholder': 'Enter password',
                 'label': False,
             }
         )
+        self.fields['password2'].label = ''
+        self.fields['password2'].help_text = ''
         self.fields['password2'].widget.attrs.update(
             {
+                'class': 'col-md-8 form-control',
                 'placeholder': 'Confirm password',
                 'label': False,
             }
