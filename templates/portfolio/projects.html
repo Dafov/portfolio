@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block projects %}
+<section id="portfolio" class="portfolio section-bg col-lg-11">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>Projects that make my journey worthwhile.</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-wrap">
+                    <img src="{% static '' %}img/portfolio/{{project.image}}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>{{ project.title }}</h4>
+                        <p>{{ project.type }}</p>
+                        <div class="portfolio-links">
+                            <a href="{% static '' %}img/portfolio/{{project.image}}" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox" title="{{ project.description }}"><i
+                                    class="bx bx-plus"></i></a>
+                            <a href="{{ project.link }}" title="{{ project.title }} Link"><i class="bx bx-link"></i></a>
+                            
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'delete project' project.id %}" title="Delete {{ project.title }}"><i class="bi bi-trash"></i></a>
+                            {% endif %}
+                                
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+
+        {% if request.user.is_superuser %}
+        <div class="text-center">
+            <a href="{% url 'create project' %}" style="font-size: 24px"><i class="bi bi-plus-circle-fill"></i>
+                <span>Add New Project</span></a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock projects%}

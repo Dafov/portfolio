@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block create_project %}
+<section id="project" class="project col-lg-11">
+    <div class="container project" data-aos="fade-up">
+        <form class="project-form" method="post" enctype="multipart/form-data">
+
+            <div class="section-title">
+                <h2>Create Project</h2>
+            </div>
+
+            {% csrf_token %}
+            {{ form }}
+
+            <div class="text-center">
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

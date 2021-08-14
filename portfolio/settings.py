@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'portfolio.base',
     'portfolio.contact',
     'portfolio.accounts',
-
-
+    'portfolio.portfolio_projects',
 ]
 
 MIDDLEWARE = [
@@ -80,12 +79,26 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# 'NAME': os.environ.get('DB_NAME'),
+# 'USER': os.environ.get('DB_USER'),
+# 'PASSWORD': os.environ.get('DB_PASSWORD'),
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio',
+        'USER': 'dafov',
+        'PASSWORD': 'konqvihyr',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }    
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
+#     }
+# }
 
 
 # Password validation
@@ -137,3 +150,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.PortfolioUser'
 
 LOGIN_REDIRECT_URL = '/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/img/portfolio')

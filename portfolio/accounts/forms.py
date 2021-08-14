@@ -14,7 +14,6 @@ class LoginForm(AuthenticationForm):
             {
                 'class': 'col-md-8 form-control',
                 'placeholder': 'Your email',
-                'label': False,
             }
         )
         self.fields['password'].label = ''
@@ -22,7 +21,6 @@ class LoginForm(AuthenticationForm):
             {
                 'class': 'col-md-8 form-control',
                 'placeholder': 'Your password',
-                'label': False,
             }
         )
 
@@ -39,7 +37,6 @@ class RegisterForm(UserCreationForm):
             {
                 'class': 'col-md-8 form-control',
                 'placeholder': 'Enter email adress',
-                'label': False,
             }
         )
         self.fields['password1'].label = ''
@@ -48,7 +45,6 @@ class RegisterForm(UserCreationForm):
             {
                 'class': 'col-md-8 form-control',
                 'placeholder': 'Enter password',
-                'label': False,
             }
         )
         self.fields['password2'].label = ''
@@ -57,6 +53,5 @@ class RegisterForm(UserCreationForm):
             {
                 'class': 'col-md-8 form-control',
                 'placeholder': 'Confirm password',
-                'label': False,
             }
         )
