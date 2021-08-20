@@ -31,11 +31,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Email: gs.dafov@gmail.com
-  <p align="center">
-    <a href="https://github.com/Dafov/portfolio/issues">Report Bug</a>
-    <a href="https://github.com/Dafov/portfolio/issues">Request Feature</a>
-  </p>
-
+<a href="https://github.com/Dafov/portfolio/issues">Report Bug</a>
+<a href="https://github.com/Dafov/portfolio/issues">Request Feature</a>
+ 
 
 <!-- CREDITS -->
 ## Credits and references
