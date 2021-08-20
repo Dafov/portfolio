@@ -7,7 +7,7 @@
 
         <div class="section-title">
             <h2>Portfolio</h2>
-            <p>Projects that make my journey worthwhile.</p>
+            <h4>Projects that make my journey worthwhile.</h4>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
@@ -20,15 +20,20 @@
                         <h4>{{ project.title }}</h4>
                         <p>{{ project.type }}</p>
                         <div class="portfolio-links">
-                            <a href="{% static '' %}img/portfolio/{{project.image}}" data-gallery="portfolioGallery"
+                            <!-- <a href="{% static '' %}img/portfolio/{{project.image}}" data-gallery="portfolioGallery"
                                 class="portfolio-lightbox" title="{{ project.description }}"><i
+                                    class="bx bx-plus"></i></a> -->
+                            <a href="{% url 'details project' project.id %}" title="Details"
+                                data-gallery="portfolioGallery" class="portfolio-lightbox"><i
                                     class="bx bx-plus"></i></a>
-                            <a href="{{ project.link }}" title="{{ project.title }} Link"><i class="bx bx-link"></i></a>
-                            
+                            <a href="{{ project.link }}" title="Project Link"><i class="bx bx-link"></i></a>
+
                             {% if request.user.is_superuser %}
-                            <a href="{% url 'delete project' project.id %}" title="Delete {{ project.title }}"><i class="bi bi-trash"></i></a>
+                            <a href="{% url 'edit project' project.id %}" title="Edit"><i class="bx bx-edit"></i></a>
+                            <a href="{% url 'delete project' project.id %}" title="Delete"><i
+                                    class="bi bi-trash"></i></a>
                             {% endif %}
-                                
+
                         </div>
                     </div>
 

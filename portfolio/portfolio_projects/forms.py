@@ -1,10 +1,6 @@
-import os
-from os.path import join
-
 from django import forms
-from django.conf import settings
+from portfolio.portfolio_projects.models import Comment, Project
 
-from portfolio.portfolio_projects.models import Project
 
 class ProjectForm(forms.ModelForm):
     class Meta:
@@ -40,7 +36,7 @@ class ProjectForm(forms.ModelForm):
 class EditProjectForm(ProjectForm):
     class Meta:
         model = Project
-        fields = '__all__'
+        exclude = ('user', )
         widgets = {
             'type': forms.TextInput(
                 attrs={
@@ -49,9 +45,31 @@ class EditProjectForm(ProjectForm):
             )
         }
 
-    def save(self, commit=True):
-        db_project = Project.objects.get(pk=self.instance.id)
-        if commit:
-            image_path = join(settings.MEDIA_ROOT, str(db_project.image))
-            os.remove(image_path)
-        return super().save(commit)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text',)
+
+    def __init__(self, *args, **kwargs):
+            super(CommentForm, self).__init__(*args, **kwargs)
+            self.fields['text'].label = ''
+            self.fields['text'].widget.attrs.update(
+                {
+                    'class': 'form-control',
+                    'rows': '3',
+                    'placeholder': 'Enter Your Comment',
+                }
+            )
+
+class EditCommentForm(ProjectForm):
+    class Meta:
+        model = Comment
+        exclude = ('user', )
+        widgets = {
+            'type': forms.TextInput(
+                attrs={
+                    'readonly': 'readonly',
+                }
+            )
+        }

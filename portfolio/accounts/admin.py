@@ -1,6 +1,7 @@
-from django.contrib import admin
-from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth import get_user_model
+
+from django.contrib import admin
 
 UserModel = get_user_model()
 
@@ -11,11 +12,15 @@ class PortfolioUserAdmin(UserAdmin):
     list_filter = ('is_staff', 'is_superuser', 'groups')
     ordering = ('email',)
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
+        (None, {
+            'fields': ('email', 'password')
+        }),
         ('Permissions', {
             'fields': ('is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),
-        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+        ('Important dates', {
+            'fields': ('last_login', 'date_joined')
+        }),
     )
     add_fieldsets = (
         (None, {

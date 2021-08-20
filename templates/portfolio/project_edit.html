@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block edit_project %}
+<section id="project" class="project col-lg-11">
+    <div class="container project" data-aos="fade-up">
+        <form class="edit-form" method="post" enctype="multipart/form-data">
+
+            <div class="section-title">
+                <h2>Edit Project</h2>
+            </div>
+
+            {% csrf_token %}
+            {{ form }}
+
+            <div class="text-center">
+                <button type="submit">Confirm</button>
+                <a class="btn btn-primary cancel" href="javascript:history.back()">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock edit_project%}

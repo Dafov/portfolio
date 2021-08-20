@@ -6,11 +6,8 @@
 <section id="portfolio-details" class="portfolio-details col-lg-11">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
-      <h2>Project Details</h2>
+      <h2>Project Information</h2>
     </div>
-
-    {% for project in projects %}
-
 
     <div class="row gy-4">
 
@@ -28,25 +25,64 @@
 
       <div class="col-lg-4">
         <div class="portfolio-info">
-          <h3>Project information</h3>
+          <h3>{{project.title}}</h3>
           <ul>
-            <li><strong>Category</strong>: Web design</li>
-            <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+            <li><strong>Project URL</strong>: <a href="{{project.link}}">{{project.link}}</a></li>
           </ul>
         </div>
+
         <div class="portfolio-description">
-          <h2>This is an example of portfolio detail</h2>
+          <h2>Description</h2>
           <p>
-            Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia.
-            Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia
-            accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt
-            eius.
+            {{project.description}}
           </p>
         </div>
-      </div>
 
-      {% endfor %}
+      </div>
+      <div class="col-lg-8">
+        {% if comments %}
+        {% for comment in comments %}
+        <div class="comment-item">
+          <h5>{{ comment.user }}</h5>
+          <p><em>{{ comment.text }}</em></p>
+
+          {% if request.user == comment.user or request.user.is_superuser %}
+          <a href="{% url 'delete comment' comment.id %}" title="Delete"><i
+                  class="bi bi-trash"></i></a>
+          {% endif %}
+
+        </div>
+        <hr>
+        {% endfor %}
+        {% else %}
+        <div>
+          <h3 class="comment-title">There are no comments for this project.</h3>
+        </div>
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+        <div>
+          <form method="post" action="{% url 'comment project' project.id %}">
+            {% csrf_token %}
+            {{ comment_form }}
+            <div class='text-center'>
+              <button class="btn btn-primary comment-btn" type="submit">Add comment</button>
+            </div>
+          </form>
+        </div>
+        {% else %}
+        {% endif %}
+
+      </div>
     </div>
+
+
+    {% if request.user.is_superuser %}
+    <div class="text-center">
+      <a class="btn btn-primary edit" href="{% url 'edit project' project.id %}" title="Edit">Edit</a>
+      <a class="btn btn-primary delete" href="{% url 'delete project' project.id %}" title="Delete">Delete</a>
+    </div>
+    {% endif %}
 
   </div>
 </section><!-- End Portfolio Details Section -->

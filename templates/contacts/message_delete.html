@@ -12,11 +12,11 @@
 
             {% csrf_token %}
 
-            <div class="text-center">
-                <input type="submit" value="Delete"/>
-                <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
-            </div>
         </form>
+        <div class="text-center">
+            <input type="submit" value="Delete"/>
+            <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+        </div>
     </div>
 </section>
 {% endblock delete_message %}
