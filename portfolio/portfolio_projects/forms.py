@@ -62,6 +62,7 @@ class CommentForm(forms.ModelForm):
                 }
             )
 
+
 class EditCommentForm(ProjectForm):
     class Meta:
         model = Comment
