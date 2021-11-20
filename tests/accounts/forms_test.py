@@ -14,7 +14,7 @@ UserModel = get_user_model()
 class TestRegisterForms(TestCase):
     def test_comment_form_valid_data(self):
         form = RegisterForm({
-            'email': 'test@test.test',
+            'email': 'test2@test.test',
             'password1': '12345asdf',
             'password2': '12345asdf',
         })
@@ -26,4 +26,3 @@ class TestRegisterForms(TestCase):
 
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 3)
-
