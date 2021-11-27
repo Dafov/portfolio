@@ -11,3 +11,5 @@ urllib3==1.26.6
 gunicorn
 psycopg2-binary
 django-dotenv
+django-storages
+boto3

@@ -40,10 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'storages',
+
     'portfolio.base',
     'portfolio.contact',
     'portfolio.portfolio_projects',
     'portfolio.accounts',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -80,31 +84,22 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DB_NAME = os.environ.get('DB_NAME')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_HOST = os.environ.get('DB_HOST')
-DB_PORT = os.environ.get('DB_PORT')
+DATABASE_NAME = os.environ.get('DATABASE_NAME')
+DATABASE_USER = os.environ.get('DATABASE_USER')
+DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
+DATABASE_HOST = os.environ.get('DATABASE_HOST')
 
-POSTGRES_READY = (
-    DB_NAME is None
-    and DB_PASSWORD is None
-    and DB_USER is None
-    and DB_HOST is None
-    and DB_PORT is None
-)
 
-if POSTGRES_READY:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': DB_NAME,
-            'USER': DB_USER,
-            'PASSWORD': DB_PASSWORD,
-            'HOST': DB_HOST,
-            'PORT': DB_PORT,
-        }    
-    }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USER,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': DATABASE_HOST,
+        'PORT': '5432',
+    }    
+}
 
 
 # Password validation
@@ -148,6 +143,9 @@ STATIC_URL = '/assets/'
 STATICFILES_DIRS = (
     BASE_DIR / 'assets',
 )
+
+STATIC_ROOT = BASE_DIR / 'assets/static_media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -159,3 +157,14 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/img/portfolio')
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
